@@ -10,6 +10,8 @@
 ## React.memo
 ### you can use this hooks if components don't need to render.
 ```sh
+import React from 'react';
+
 function Header() {
  <div>
   <h1> Header </h1>
@@ -21,6 +23,8 @@ export default React.memo(Header);
 ## useMemo
 ### 
 ```sh
+import { useMemo } from "react";
+
 function App() {
 
  const data = useMemo(() => {
@@ -41,12 +45,14 @@ export default App;
 ## useCallback
 ### 
 ```sh
+import {useState, useCallback} from 'react';
+
 function App() {
  const [number, setNumber] = useState(0);
  const [text, setText] => useState("");
 
  const increment = useCallback(() => {
-  setNumber((prevState) => prevState + 1)
+ setNumber((prevState) => prevState + 1)
 }, []);
 
 return (
