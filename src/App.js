@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+
+import { useState, useMemo, useCallback } from 'react';
 import './App.css';
+import Header from './components/Header';
 
 function App() {
+  const[number, setNumber]= useState(0);
+  const[text, setText] = useState("")
+
+  const increment = useCallback(() => {
+    setNumber((prevState) => prevState + 1)
+  }, [])
+
+
+  // const data = useMemo(() => {
+  //   return calculating(number);
+  // }, [number])
+
+  // const data = calculating();
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header increment= {increment}/>
+      <h1>{number}
+       <hr />
+      </h1>
+      <input value={text} onChange={({target}) => setText(target.value)} />
+      <br/>
+   
     </div>
   );
 }
+
+// function calculating(number) {
+//   console.log("Calculating...");
+//   for(let i = 0; i < 100000; i++){}
+//   console.log("Calculate completed!");
+
+//   return {name: "Emma", number}
+// }
 
 export default App;
