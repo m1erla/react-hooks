@@ -1,4 +1,4 @@
-# Use memorazing hooks on react 
+# Use Memoization hooks on react 
 
 `
 1. React.memo
